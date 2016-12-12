@@ -48,7 +48,7 @@ def CifarTestImages(path):
 
 
 
-trainX,trainY=CifarTrainingImages("../Cifar10")
+trainX,trainY=CifarTrainingImages("../../Cifar10")
 trainX=trainX.astype(float)
 trainX/=255.0
 
@@ -174,7 +174,11 @@ cnn.add(core.Dense(4096,activation="relu"))
 
 cnn.add(core.Dropout(0.4))
 
-cnn.add(core.Dense(1000,activation="softmax"))
+cnn.add(core.Dense(1000,activation="relu"))
+
+cnn.add(core.Dropout(0.4))
+
+cnn.add(core.Dense(10,activation="softmax"))
 
 cnn.summary()
 
@@ -186,7 +190,7 @@ toc=time.time()
 print("time taken = "+str(toc-tic)+"sec")
 
 
-testX,testY = CifarTestImages("../Cifar10")
+testX,testY = CifarTestImages("../../Cifar10")
 testX = testX.astype(float)
 testX /= 255.0
 
