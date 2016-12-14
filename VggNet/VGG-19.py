@@ -199,8 +199,8 @@ yPred = cnn.predict_classes(testX)
 # np.savetxt('mnist-vggnet.csv', np.c_[range(1,len(yPred)+1),yPred], delimiter=',', header = 'ImageId,Label', comments = '', fmt='%d')
 c=0
 i=0
-while i<len(Pred):
-	if Pred[i]==testY[i]:
+while i<len(yPred):
+	if yPred[i]==testY[i]:
 		c=c+1
 	i=i+1
 
